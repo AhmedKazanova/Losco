@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkDemo=self.webpackChunkDemo||[]).push([[592],{8660:(_,o,s)=>{s.d(o,{B:()=>e});var a=s(4650),c=s(5760);class e{constructor(r){this._ApiserviceService=r}resolve(r,v){return this._ApiserviceService.get("Manager")}}e.\u0275fac=function(r){return new(r||e)(a.LFG(c.O))},e.\u0275prov=a.Yz7({token:e,factory:e.\u0275fac,providedIn:"root"})}}]);
