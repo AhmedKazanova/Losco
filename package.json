@@ -11,7 +11,8 @@
     "serve:ssr": "node dist/Demo/server/main.js",
     "build:ssr": "ng build --aot=true && ng run Demo:server",
     "prerender": "ng run Demo:prerender",
-    "analyse": "webpack-bundle-analyzer dist/Demo/browser/stats.json"
+    "analyse": "webpack-bundle-analyzer dist/Demo/browser/stats.json",
+    "vercel-build": "npm run build:ssr"
   },
   "private": true,
   "dependencies": {
