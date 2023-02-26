@@ -1,0 +1,184 @@
+<!-- start slider -->
+<section class="serviceslider"   >
+
+
+  <div class="direction">
+    <swiper   [config]="Services" class="mySwiper" *ngIf="isServer == false">
+      <div class="swiper-wrapper">
+
+        <ng-container *ngIf="ServicesSlidesArr.length > 0">
+          <div
+            class="video swiper-slide"
+            *ngFor="let img of ServicesSlidesArr; let i = index"
+          >
+            <img
+              *ngIf="img.changetype != 'mp4'"
+              src="{{img.imagePath}}"
+              class="col-12"
+              alt=""
+              srcset=""
+            />
+
+            <video  *ngIf="img.changetype == 'mp4'" class="col-12" controls>
+              <source src="{{img.imagePath}}" type="video/mp4" />
+              <i class="fa fa-play" aria-hidden="true"></i>
+            </video>
+
+            <h1 class="text-end " *ngIf="lang == 'ar' && img.changetype != 'mp4'">{{ img.arabicHeading }}</h1>
+            <h1 class="text-start " *ngIf="lang == 'en' && img.changetype != 'mp4'">{{ img.englishHeading }}</h1>
+
+          </div>
+        </ng-container>
+      </div>
+    </swiper>
+  </div>
+
+
+ </section>
+ <!-- end slider -->
+
+
+<!-- start services-top -->
+<section class="services-top">
+  <div class="container">
+<div class="col-lg-11 mx-auto">
+  <div class="box">
+
+    <svg  *ngIf="lang == 'ar' " width="100" height="50" fill="#9dc10d" class="bi bi-quote quoteAR" viewBox="0 0 16 16">
+      <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/>
+    </svg>
+
+    <svg  *ngIf="lang == 'en' " width="120" height="50" fill="#9dc10d" class="bi bi-quote quoteEN" viewBox="0 0 16 16">
+      <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/>
+    </svg>
+
+    <p *ngIf="lang == 'ar' " class="p-3">{{SectionOne.arabicText}}</p>
+    <p *ngIf="lang == 'en' " class="p-3">{{SectionOne.englishText}}</p>
+</div>
+<div class="line">
+
+  <svg  width="25" height="25" fill="#333" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+  </svg>
+
+</div>
+</div>
+  </div>
+</section>
+<!-- end services-top -->
+
+<!-- start  logistic-->
+<section class="logistic">
+  <div class="container">
+    <div class="col-lg-11 mx-auto">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-sm-6 col-md-3 col-12 text-center">
+            <img  width="100" height="100" src="{{SectionTwo.imagePath}}" class="col-10 mx-auto pb-4" alt="image" >
+        </div>
+        <div class="col-sm-6 col-md-9 col-12">
+            <p *ngIf="lang == 'ar' ">{{SectionTwo.arabicHeading}}</p>
+            <p *ngIf="lang == 'en' ">{{SectionTwo.englishHeading}}</p>
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+<!-- end logistic -->
+
+<!-- start service-middle -->
+<section class="service-middle  ">
+  <div class="container">
+      <h2 class="col-12 col-md-10 mx-auto"> {{"logistic" | translate}} </h2>
+      <div class="row align-items-start pb-4">
+
+          <div class="col-12 col-md-6" *ngFor="let logistic of LogisticArr">
+              <div class="box  mt-5">
+                  <img  width="100" height="100" class="col-4"  src="{{logistic.imagePath}}" alt="image">
+                  <div class="box-text">
+                      <h3 *ngIf="lang == 'ar'"> {{logistic.arabicHeading}}  </h3>
+                      <h3 *ngIf="lang == 'en'"> {{logistic.englishHeading}}  </h3>
+                      <p *ngIf="lang == 'ar'">{{logistic.arabicText}} </p>
+                      <p *ngIf="lang == 'en'">{{logistic.englishText}} </p>
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+  </div>
+</section>
+<!-- end service-middle -->
+
+<!-- start  logistic-->
+<section class="art ">
+  <div class="container">
+      <div class="row align-items-center justify-content-between">
+          <div class="col-sm-6 col-md-3 col-12 text-center">
+              <img  width="100" height="100" src="{{SectionFour.imagePath}}" class="col-10 col-md-8 col-lg-6 mx-auto pb-4" alt="image" srcset="">
+          </div>
+          <div class="col-sm-6 col-md-9 col-12">
+            <p *ngIf="lang == 'ar' ">{{SectionFour.arabicHeading}}</p>
+            <p *ngIf="lang == 'en' ">{{SectionFour.englishHeading}}</p>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- end logistic -->
+
+<!-- start service-end -->
+<section class="service-end ">
+  <div class="container">
+      <h2 class="col-12 col-md-10 mx-auto">    {{"losArt" | translate}}     </h2>
+      <div class="row pb-4">
+
+        <div class="col-12 col-md-6" *ngFor="let logisticArt of LogisticArtArr">
+          <div class="box  mt-5">
+            <img  width="100" height="100" class="col-4"  src="{{logisticArt.imagePath}}" alt="image">
+              <div class="box-text">
+                  <h3 *ngIf="lang == 'ar'"> {{logisticArt.arabicHeading}}  </h3>
+                  <h3 *ngIf="lang == 'en'"> {{logisticArt.englishHeading}}  </h3>
+                  <p *ngIf="lang == 'ar'">{{logisticArt.arabicText}} </p>
+                  <p *ngIf="lang == 'en'">{{logisticArt.englishText}} </p>
+              </div>
+          </div>
+      </div>
+      </div>
+  </div>
+</section>
+<!-- end service-end -->
+
+<!-- start galary -->
+<section class="galary mb-5">
+  <div class="container">
+      <h2>{{"Gallery" | translate}} </h2>
+      <div class="row my-5">
+
+        <ng-container *ngFor="let Gallary of GallaryImagesArr;let i = index">
+
+          <div class="col-md-4 col-12 mb-3" *ngIf="i < 3">
+            <img   src="{{Gallary.imagePath}}" alt="image" class="w-100 transition">
+        </div>
+
+        <div class="col-md-6 col-12 mb-3" *ngIf="i >= 3">
+          <img  src="{{Gallary.imagePath}}"  alt="image" class="w-100 transition">
+      </div>
+
+        </ng-container>
+
+      </div>
+
+      <!-- <a href="#">
+        <svg  width="25" height="25" fill="#333" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        <span class="mx-2">{{"MorePhotot" | translate}}</span>
+
+        <svg  width="25" height="25" fill="#333" class="bi bi-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+        </svg>
+    </a> -->
+
+  </div>
+</section>
+<!-- end galary -->
+

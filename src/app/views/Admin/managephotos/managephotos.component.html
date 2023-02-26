@@ -1,0 +1,256 @@
+<section class="container-fluid pt-2 text-center">
+
+  <h1 class="py-2 fs-1 my-2 text-center">{{"ManagePhotos" | translate}}</h1>
+
+
+<form class="col-12 d-flex flex-wrap justify-content-center align-items-center">
+
+<div class="col-12 col-sm-6 p-2">
+  <textarea
+  [(ngModel)]="slider.arabicHeading"
+        id="arabicHeading"
+        placeholder="{{'ArabicHeading' | translate}}"
+        class="form-control   my-2"
+        type="text"
+        name="Arabic Heading"
+        title="{{'ArabicHeading' | translate}}"
+   cols="30" rows="3">
+  </textarea>
+
+  <textarea
+  [(ngModel)]="slider.arabicText"
+  class="form-control   my-2"
+  title="{{'ArabicText' | translate}}"
+  placeholder="{{'ArabicText' | translate}}"
+  name="arabicText"
+  id="arabicText"
+  type="text"
+  cols="30"
+  rows="3">
+</textarea>
+
+
+</div>
+
+<div class="col-12 col-sm-6 p-2">
+  <textarea
+  [(ngModel)]="slider.englishHeading" id="englishHeading"
+        placeholder="{{'EnglishHeading' | translate}}"
+        class="form-control   my-2"
+        type="text"
+        name="English Heading"
+        title="{{'EnglishHeading' | translate}}"
+ cols="30" rows="3">
+  </textarea>
+
+  <textarea
+  [(ngModel)]="slider.englishText"
+  class="form-control   my-2"
+  title="{{'EnglishText' | translate}}"
+  placeholder="{{'EnglishText' | translate}}"
+  name="EnglishText"
+  id="EnglishText"
+  type="text"
+  cols="30"
+  rows="3">
+</textarea>
+
+</div>
+
+<div class="col-12 col-sm-6 p-2">
+  <input title="{{'ImagesContent' | translate}}" #ImageInput (change)="getImagePath($event)" id="sliderImage" class="form-control " name="file" type="file"  >
+</div>
+
+<div class="col-12 col-sm-6 p-2">
+  <select title="{{'Page' | translate}}" [(ngModel)]="slider.type" name="type" id="type" class="form-select  text-dark">
+    <option [disabled]="true" value="0">{{"Page" | translate}}</option>
+    <option *ngFor="let page of pageArr"  value="{{page.id}}">
+      <span *ngIf="lang == 'ar'">{{page.arabicPage}}</span>
+      <span *ngIf="lang == 'en'">{{page.englishPage}}</span>
+    </option>
+  </select>
+</div>
+
+<div class="col-12 col-sm-6 p-2 mt-4">
+  <button (click)="send()" type="submit" title="{{'Save' | translate}}" class="btn    d-block w-100"> {{"Save" | translate}} </button>
+</div>
+
+</form>
+
+
+
+<div class="col-12 col-sm-6 p-2 mt-1 mx-auto">
+  <label for="filter">{{"Filter" | translate}}</label>
+  <select (change)="filter($event)" class="form-select  " name="filter" id="filter">
+    <option  value="0">{{"Page" | translate}}</option>
+    <option *ngFor="let page of pageArr"  value="{{page.id}}">
+      <span *ngIf="lang == 'ar'">{{page.arabicPage}}</span>
+      <span *ngIf="lang == 'en'">{{page.englishPage}}</span>
+    </option>
+  </select>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-dark table-hover table-striped mt-3">
+        <thead>
+            <tr >
+                <th class="col-1">#</th>
+                <th class="col-2">{{'ArabicHeading' | translate}}</th>
+                <th class="col-2">{{'ArabicText' | translate}}</th>
+                <th class="col-2">{{'EnglishHeading' | translate}}</th>
+                <th class="col-2">{{'EnglishText' | translate}}</th>
+                <th class="col-2">{{"Image" | translate}}</th>
+                <th class="col-2">{{"Page" | translate}}</th>
+                <th class="col-2">{{"Option" | translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="p-1" *ngFor="let img of selectArr; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{img.arabicHeading}}</td>
+                <td>{{img.arabicText}}</td>
+                <td>{{img.englishHeading}}</td>
+                <td>{{img.englishText}}</td>
+                <td>
+    <div class="">
+
+        <img  width="140" *ngIf="img.changetype != 'mp4' " src="{{url+img.imagePath}}" class="" height="70" alt="" srcset="">
+
+        <video  *ngIf="img.changetype == 'mp4' " class="" width="140" height="70" controls>
+          <source src="{{url+img.imagePath}}" type="video/mp4">
+        </video>
+
+    </div>
+                </td>
+
+                <td>
+
+
+            <div *ngFor="let page of pageArr" >
+                  <div *ngIf="page.id == img.type ">
+                  <span *ngIf="lang == 'ar'">{{page.arabicPage}}</span>
+                  <span *ngIf="lang == 'en'">{{page.englishPage}}</span>
+                  </div>
+           </div>
+
+                </td>
+
+                <td class="p-1">
+                    <div class="d-flex flex-wrap px-1">
+                        <button type="button" (click)="OpenUpdateModel(img)" class="btn btn-warning col-12  mx-1 my-2 text-white">{{"Edite" | translate}}</button>
+                        <button type="button" (click)="delete(img)" class="btn btn-danger col-12  mx-1 my-2">{{"Delete" | translate}}</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="popUp" *ngIf="openUpdate">
+
+<form [formGroup]="formUpdate" class="col-11 mx-auto d-flex align-items-start flex-wrap bg-light p-3">
+
+
+<div class="col-12 col-sm-6 p-2">
+  <textarea
+  formControlName="arabicHeading"
+  cols="30"
+  rows="4"
+  id="updatearabicHeading"
+  placeholder="{{'ArabicHeading' | translate}}"
+  class="form-control my-2"
+  name="Arabic Heading"
+  title="{{'ArabicHeading' | translate}}">
+  </textarea>
+
+  <textarea
+  formControlName="arabicText"
+  cols="30"
+  rows="4"
+  id="updatearabicText"
+  placeholder="{{'arabicText' | translate}}"
+  class="form-control  my-2"
+  name="Arabic Text"
+  title="{{'arabicText' | translate}}">
+  </textarea>
+
+</div>
+
+<div class="col-12 col-sm-6 p-2">
+
+<textarea
+cols="30"
+rows="4"
+formControlName="englishHeading"
+id="updateenglishHeading"
+placeholder="{{'EnglishHeading' | translate}}"
+class="form-control   my-2"
+name="English Heading"
+title="{{'EnglishHeading' | translate}}"
+></textarea>
+
+<textarea
+cols="30"
+rows="4"
+formControlName="englishText"
+id="updateEnglishText"
+placeholder="{{'EnglishText' | translate}}"
+class="form-control   my-2"
+name="English Text"
+title="{{'EnglishText' | translate}}">
+</textarea>
+
+</div>
+
+
+<div class="col-12 col-sm-6 text-center  p-2">
+  <input (change)="updateImage($event,UpdateSlideId?.value)" class="form-control mb-3" type="file"  >
+
+<img  *ngIf="base65 == '' " src="assets/images/placeholderimage.jpg" class="col-md-8 mx-auto " height="200" alt="" srcset="">
+
+<img  *ngIf="base65 != '' && typeFileUpdate != 'mp4' " src="{{base65}}" class="col-md-8 mx-auto " height="200" alt="" srcset="">
+
+<video  lo *ngIf="base65 != '' && typeFileUpdate == 'mp4' " class="col-12" height="200" controls>
+<source src="{{base65}}" type="video/mp4">
+</video>
+
+</div>
+
+
+<div class="col-12 col-sm-6  p-2">
+
+  <select formControlName="type" class="form-select mb-3" name="typed" id="typed">
+    <option value="0">{{"Page" | translate}}</option>
+    <option *ngFor="let page of pageArr"  value="{{page.id}}">
+      <span *ngIf="lang == 'ar'">{{page.arabicPage}}</span>
+      <span *ngIf="lang == 'en'">{{page.englishPage}}</span>
+  </select>
+
+
+  <div class="d-flex justify-content-between">
+    <button (click)="update()" type="button" class="btn btn-dark   d-block col-5 mt-4"> {{"Update" | translate}} </button>
+
+    <button (click)="cancle()" class="btn btn-secondary   d-block col-5 mt-4" type="reset">{{"Cancle" | translate}}</button>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</form>
+
+
+</div>
+
+
+
+</section>

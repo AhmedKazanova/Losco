@@ -1,0 +1,96 @@
+
+
+<!-- start header -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-body-tertiary">
+  <div class="container-fluid px-lg-5">
+
+    <a aria-label="Read More About LOGO" [routerLink]="'/mainpage' | localize" class="navbar-brand p-0">
+      <img  src="{{logo.imagePath}}" width="140" height="70" intrinsicsize="140x70" class="col-12 px-2" alt="logo-light" >
+    </a>
+
+    <button aria-labelledby="open" title="open" name="open" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon fs-2"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarCollapse">
+      <div class="navbar-nav mx-auto  py-0">
+
+        <div class="nav-item dropdown ">
+          <a aria-label="Home" href="#"  class="nav-link p-0 d-flex align-items-center justify-content-between" data-bs-toggle="dropdown">
+            <span class="col-11 col-lg-8   text-nowrap p-0"> {{"Home" | translate}} </span>
+            <svg width="15" fill="#333"  class='mx-2'  viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+          </a>
+          <div class="dropdown-menu m-0">
+            <a aria-label="Read Home" [routerLink]="'/mainpage' | localize" class="dropdown-item text-center">{{"Home" | translate}}</a>
+          </div>
+        </div>
+
+        <div  class="nav-item dropdown">
+          <a aria-label="Settings" href="#" class="nav-link p-0 d-flex align-items-center justify-content-between" data-bs-toggle="dropdown">
+              <span class="col-11 col-lg-8  text-nowrap p-0"> {{"Settings" | translate}} </span>
+              <svg width="15" fill="#333"  class='mx-2'  viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+        </a>
+          <div class="dropdown-menu m-0">
+            <a aria-label="Read More Settings" [routerLink]="'/admin/home' | localize" class="dropdown-item text-center">{{"Settings" | translate}}</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a aria-label="About"  href="#" class="nav-link p-0 d-flex align-items-center justify-content-between" data-bs-toggle="dropdown">
+          <span class="col-11 col-lg-8   text-nowrap p-0"> {{"About" | translate}} </span>
+          <svg width="15" fill="#333"  class='mx-2'  viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+          </a>
+          <div class="dropdown-menu m-0">
+            <a aria-label="Read About" [routerLink]="'/about' | localize" class="dropdown-item text-center">{{"About" | translate}}</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a aria-label="Services" href="#" class="nav-link p-0 d-flex align-items-center justify-content-between" data-bs-toggle="dropdown">
+          <span class="col-11 col-lg-8  text-nowrap p-0"> {{"Services" | translate}} </span>
+          <svg width="15" fill="#333"  class='mx-2'  viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+          </a>
+          <div class="dropdown-menu m-0">
+            <a aria-label="Read Services" [routerLink]="'/services' | localize" class="dropdown-item text-center">{{"Services" | translate}}</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a aria-label="Read Contact"  href="#" class="nav-link p-0 d-flex align-items-center justify-content-between" data-bs-toggle="dropdown">
+          <span class="col-11 col-lg-8   text-nowrap p-0"> {{"ContactUs" | translate}} </span>
+          <svg width="15" fill="#333"  class='mx-2'  viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+          </a>
+          <div class="dropdown-menu m-0">
+            <a aria-label="Read Contact" [routerLink]="'/contact' | localize" class="dropdown-item text-center">{{"ContactUs" | translate}}</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a aria-label="Language"  href="#" class="nav-link p-0 d-flex align-items-center justify-content-between" data-bs-toggle="dropdown">
+          <span class="col-11 col-lg-7 text-nowrap p-0"> {{"Language" | translate}} </span>
+          <svg width="15" fill="#333"  class='mx-2'  viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+          </a>
+          <div class="dropdown-menu m-0">
+              <a href="0" *ngFor="let locale of locales"
+              class="dropdown-item text-center"
+              queryParamsHandling="merge"
+              routerLink="/{{locale}}/{{currentUrl}}"
+              routerLinkActive="active">
+              {{locale}}
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item" >
+          <a routerLink="/"  class="nav-link" (click)="logout()">{{"LogOut" | translate}}</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</nav>
+<!-- end header -->
+
+<router-outlet></router-outlet>
+

@@ -1,0 +1,50 @@
+section{
+  min-height: 100vh;
+}
+
+.popUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(51, 51, 51, 0.5);
+  z-index: 99999999999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+
+}
+.popUp form {
+min-height: 90vh;
+}
+table select {
+color: white !important;
+border: none !important;
+background-image: none !important;
+}
+
+form button {
+background-color: #4c4c4c;
+color: white;
+}
+input:focus,textarea:focus {
+box-shadow: none !important;
+}
+input,select,textarea {
+border: 1px solid gray !important;
+}
+td {
+  font-size: 1.5rem !important;
+}
+button , input , textarea ,select , label ,th,option {
+  font-size: 1.6rem !important;
+}
+th {
+  padding: 10px;
+}
+table img ,table video{
+  aspect-ratio: 140 / 70;
+  object-fit: contain;
+}

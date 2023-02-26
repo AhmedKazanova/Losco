@@ -1,0 +1,56 @@
+<!-- start contact -->
+<section class="call_us direction ">
+  <h1 class="container fw-bold fs-1"> {{"Contact" | translate}} </h1>
+  </section>
+  <!-- end contact -->
+
+<!-- start map -->
+<section class="contact text-center pt-5" id="map">
+  <iframe loading="lazy"  class="col-11 m-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.4175064801475!2d46.725428484999426!3d24.746870384107623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f026950ef859f%3A0xc1783819fe805cf5!2z2YTZiNiz2YPZiA!5e0!3m2!1sar!2seg!4v1669665771517!5m2!1sar!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+<!-- end map -->
+
+
+
+<!-- start contact_info -->
+<section class="contact_info direction mb-5">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-6 col-12 mt-4">
+  <h2 class="fw-bold fs-1"> {{"SendUs" | translate}} </h2>
+          <form [formGroup]="form" class="mt-5">
+              <input formControlName="name" required name="name" type="text" placeholder="الاسم" class="first form-control">
+              <input formControlName="email" required name="email" type="email" placeholder="البريد الإلكتروني" class="second form-control text-start">
+              <input formControlName="enquiry" name="enquiry" required type="text" placeholder="استفسار" class="form-control">
+              <textarea formControlName="messages" name="messages" required placeholder="رسالتك" class="form-control"></textarea>
+              <button (click)="send()" class="transition bg-secondary mt-3" type="submit">{{"Send" | translate}}</button>
+            </form>
+  </div>
+  <div class="col-md-6 col-12 mt-4">
+      <h2> {{"Contact" | translate}} </h2>
+      <div class="location mt-5">
+          <div class="d-flex align-items-center mb-4">
+              <svg width="35" height="35" fill="#333" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+              </svg>
+              <p class="px-2"> {{"Phone" | translate}} : 01122223333</p>
+          </div>
+          <div class="d-flex align-items-center mb-4">
+            <svg width="35" height="35" fill="#333" class="bi bi-envelope" viewBox="0 0 16 16">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+            </svg>
+              <p class="px-2"> {{"Email" | translate}} : Test@losco.sa</p>
+          </div>
+          <div class="d-flex align-items-center">
+            <svg width="35" height="35" fill="#333" class="bi bi-geo-alt" viewBox="0 0 16 16">
+              <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+              <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>
+              <p class="px-2"> {{"Address" | translate}} : PPWF+P7 الواحة , الرياض</p>
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  </section>
+  <!-- end contact_info -->

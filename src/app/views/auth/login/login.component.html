@@ -1,0 +1,42 @@
+<section class="direction d-flex justify-content-center align-items-center">
+
+  <div class="col-12 col-md-8  col-xl-6   px-2">
+
+      <form [formGroup]="userFormGrouplogin" class="login pb-5 mb-5">
+          <!-- ************************ Email ********************************************************************** -->
+          <div class="col-12 ">
+              <input
+              required
+              type="email"
+              autocomplete="email"
+              formControlName="email"
+              class="form-control fs-4 text-start"
+              name="email"
+              id="email"
+              placeholder="{{'Email' | translate}}">
+          </div>
+          <!-- **************************************************************************************************** -->
+
+          <!-- ************************ Password كلمة المرور********************************************************************** -->
+          <div class="col-12 mt-3 position-relative">
+              <input
+              required
+              formControlName="password"
+              autocomplete="password"
+              type="password"
+              class="form-control fs-4"
+              name="password"
+              id="password"
+              placeholder="{{'Password' | translate}}">
+          </div>
+          <!-- ********************************************************************************************** -->
+
+          <!-- ************************ Login تسجيل الدخول****************************************************************** -->
+          <div class="col-12 my-5 text-center">
+              <button (click)="login(userFormGrouplogin)"
+                  class="custom-btn btn-12 d-block w-100 mx-auto "><span>{{"Login"|translate}}</span><span>{{"Click"|translate}}</span></button>
+          </div>
+          <!-- ********************************************************************************************** -->
+      </form>
+  </div>
+</section>

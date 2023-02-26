@@ -1,0 +1,177 @@
+<section>
+
+  <h1 class="py-2 fs-1 text-center">{{"News" | translate}}</h1>
+
+
+  <form class="d-flex justify-content-between flex-wrap">
+
+    <div class="mx-auto col-11 col-sm-6  col-lg-5 p-2">
+
+      <input
+      [(ngModel)]="data.arabicHeading"
+      class="form-control fs-3"
+      type="text"
+      name="Arabic Heading"
+      placeholder="{{'ArabicHeading' | translate}}"
+      title="{{'ArabicHeading' | translate}}"
+    />
+
+      <textarea
+      [(ngModel)]="data.arabicText"
+        name="arabicText"
+        class="form-control fs-3 mt-4"
+        name="text"
+        cols="30"
+        rows="5"
+        placeholder="{{'ArabicText' | translate}}"
+        title="{{'ArabicText' | translate}}">
+      </textarea>
+        </div>
+
+
+
+
+    <div class="mx-auto col-11 col-sm-6  col-lg-5 p-2">
+
+      <input
+      [(ngModel)]="data.englishHeading"
+      class="form-control fs-3"
+      type="text"
+      name="englishHeading"
+      placeholder="{{'EnglishHeading' | translate}}"
+      title="{{'EnglishHeading' | translate}}"
+    />
+
+
+      <textarea
+        [(ngModel)]="data.englishText"
+        name="englishText"
+        class="form-control fs-3 mt-4"
+        name="text"
+        cols="30"
+        rows="5"
+        placeholder="{{'EnglishText' | translate}}"
+        title="{{'EnglishText' | translate}}"
+      ></textarea>
+
+
+        </div>
+
+    <div class="col-12 text-center">
+
+        <div class="col-11 col-sm-6 col-lg-4 mx-auto">
+            <label for="date"> {{"Date" | translate}} </label>
+            <input [(ngModel)]="data.date" name="date" id="date" type="date" class="form-control fs-3">
+        </div>
+        <div class="col-11 col-sm-6 col-lg-4 mx-auto">
+            <label for="image"> {{"Image" | translate}} </label>
+            <input #ImageInput (change)="getImagePath($event)" id="image" name="image" type="file" class="form-control fs-3">
+        </div>
+
+ <button (click)="send()"type="submit"class="btn btn-dark fs-3 d-block col-11 col-sm-6 col-lg-4 mx-auto mt-4">{{"Save" | translate}}</button>
+
+</div>
+      </form>
+
+
+
+<div class="table-responsive mt-4">
+<table class="table table-striped table-hover table-dark ">
+<thead>
+    <tr>
+        <th class="col-1">#</th>
+        <th class="col-1">{{'ArabicHeading' | translate}}</th>
+        <th class="col-2">{{'EnglishHeading' | translate}}</th>
+        <th class="col-2">{{"ArabicText" | translate}}</th>
+        <th class="col-2">{{"EnglishText" | translate}}</th>
+        <th class="col-2">{{"Date" | translate}}</th>
+        <th class="col-3">{{"Image" | translate}}</th>
+        <th class="col-2">{{"Option" | translate}}</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let New of newsArr;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{New.arabicHeading}}</td>
+        <td>{{New.englishHeading}}</td>
+        <td>{{New.arabicText}}</td>
+        <td>{{New.englishText}}</td>
+        <td>
+            {{New.date | date:'d'}}
+        <ng-container *ngFor="let arabicDate of dateArr">
+            <span *ngIf="New.date.split('-')[1] == arabicDate.id">
+                <span *ngIf="lang == 'ar'">{{arabicDate.arabicDate}}</span>
+                <span *ngIf="lang == 'en'">{{arabicDate.englishDate}}</span>
+            </span>
+        </ng-container>
+
+        </td>
+        <td><img src="{{url+New.imagePath}}" class="col-12" height="150" alt=""></td>
+        <td>
+            <div class="d-flex justify-content-center px-1">
+                <button (click)="OpenUpdateModel(New)" class="btn btn-warning text-white fs-3 col-5  mx-3">Edite</button>
+                <button (click)="delete(New)" class="btn btn-danger fs-3 col-5  mx-3">Delete</button>
+            </div>
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="popUp" *ngIf="openUpdate">
+
+ <form [formGroup]="formUpdate" class="col-11 mx-auto d-flex align-items-start flex-wrap bg-light p-3">
+
+  <div class="col-12 col-sm-6 p-2">
+
+    <input type="text"
+    formControlName="arabicHeading"
+    id="updatearabicHeading"
+    placeholder="{{'ArabicHeading' | translate}}"
+    class="form-control fs-3 mb-3"
+    name="Arabic Heading"
+    title="{{'ArabicHeading' | translate}}">
+
+
+    <input type="text"
+    formControlName="englishHeading"
+    id="updateenglishHeading"
+    placeholder="{{'EnglishHeading' | translate}}"
+    class="form-control fs-3"
+    name="English Heading"
+    title="{{'EnglishHeading' | translate}}">
+
+    <input (change)="updateImage($event,newsID?.value)" class="form-control fs-3 my-3" type="file"  >
+    <img *ngIf="base65" src="{{base65}}" class="col-12 " height="200" alt="" srcset="">
+
+  </div>
+
+
+  <div class="col-12 col-sm-6  p-2">
+    <textarea formControlName="arabicText" class="form-control  fs-3" name="arabicText" id="" cols="30" rows="3"></textarea>
+    <textarea formControlName="englishText" class="form-control my-3 fs-3" name="englishText" id="" cols="30" rows="3"></textarea>
+
+    <div class="col-12 p-1 text-center">
+      <label for="">Date</label>
+      <input formControlName="date" type="date" class="form-control my-2">
+  </div>
+
+  <div class="d-flex justify-content-between p-1">
+    <button (click)="update()" type="submit" class="btn btn-dark fs-3 d-block col-5 mt-4" > {{"Update" | translate}} </button>
+    <button (click)="cancle()" class="btn btn-secondary fs-3 d-block col-5 mt-4" type="reset">{{"Cancle" | translate}}</button>
+</div>
+
+
+  </div>
+
+
+
+
+
+
+    </form>
+
+
+    </div>
+
+</section>

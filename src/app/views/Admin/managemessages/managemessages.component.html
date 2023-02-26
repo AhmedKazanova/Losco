@@ -1,0 +1,32 @@
+<section>
+
+  <h1 class="py-2 fs-1 text-center">{{"Messages" | translate}}</h1>
+
+  <div class="table-responsive mt-5">
+    <table class="table table-striped table-hover table-dark">
+  <thead>
+    <tr>
+      <th class="col-1">#</th>
+      <th class="col-1">{{"Name" | translate}}</th>
+      <th class="col-2">{{"Email" | translate}}</th>
+      <th class="col-3">{{"Question" | translate}}</th>
+      <th class="col-4">{{"Messages" | translate}}</th>
+      <th class="col-1">{{"Option" | translate}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let message of messagesArr;let i = index">
+      <td>{{i+1}}</td>
+      <td>{{message.name}}</td>
+      <td>{{message.email}}</td>
+      <td>{{message.enquiry}}</td>
+      <td>{{message.messages}}</td>
+      <td>
+        <button (click)="delete(message)" class="btn btn-danger fs-3">{{"Delete" | translate}}</button>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+
+  </section>

@@ -1,0 +1,152 @@
+<!-- start slider -->
+<section class="aboutslider">
+
+  <div class="direction">
+    <swiper   [config]="About" *ngIf="isServer == false">
+      <div class="swiper-wrapper">
+
+        <ng-container *ngIf="AboutSlidesArr.length > 0">
+          <div
+            class="video swiper-slide"
+            *ngFor="let img of AboutSlidesArr; let i = index"
+          >
+            <img
+              *ngIf="img.changetype != 'mp4'"
+              src="{{img.imagePath}}"
+              class="col-12"
+              alt=""
+              srcset=""
+            />
+
+            <video *ngIf="img.changetype == 'mp4'" class="col-12" controls>
+              <source src="{{img.imagePath}}" type="video/mp4" />
+              <i class="fa fa-play" aria-hidden="true"></i>
+            </video>
+
+            <h1 class="text-end text-white fs-1" *ngIf="lang == 'ar' && img.changetype != 'mp4'">{{ img.arabicHeading }}</h1>
+            <h1 class="text-start text-white fs-1" *ngIf="lang == 'en' && img.changetype != 'mp4'">{{ img.englishHeading }}</h1>
+          </div>
+        </ng-container>
+      </div>
+    </swiper>
+
+  </div>
+
+
+ </section>
+ <!-- end slider -->
+
+
+
+ <!-- start about -->
+<section class="about">
+  <div class="container">
+      <div class="row align-items-start justify-content-center">
+
+          <div class="col-12 col-md-6">
+
+              <div class="box mb-3" *ngFor="let content of AboutContentArr">
+
+                  <svg *ngIf="lang == 'en'"   fill="#9dc10d" height="40px" width="100px" version="1.1" id="Capa_1" viewBox="0 0 491.1 491.1" xml:space="preserve">
+                    <g>
+                      <path d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5   c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"/>
+                    </g>
+                    </svg>
+
+
+                    <svg *ngIf="lang == 'ar'"   fill="#9dc10d" height="40px" width="100px" version="1.1" id="Capa_1" viewBox="0 0 491.1 491.1" xml:space="preserve" transform="rotate(180)">
+
+                      <g id="SVGRepo_iconCarrier"> <g> <path d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5 c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"/> </g> </g>
+
+                      </svg>
+
+                  <p *ngIf="lang == 'ar'" class="pt-2">{{content.arabicText}}</p>
+                  <p *ngIf="lang == 'en'" class="pt-2">{{content.englishText}}</p>
+              </div>
+
+
+          </div>
+
+          <div class="col-12 col-md-6 mb-5">
+
+            <div class="direction">
+
+              <swiper   [config]="SwipperAbout" *ngIf="isServer == false">
+
+                <div class="swiper-wrapper smallSwipper">
+
+                  <div class="swiper-slide" *ngFor="let img of AboutSmallSlidesArr; let i = index">
+                    <div class="solution-box">
+                        <img   src="{{img.imagePath}}" alt="Image" class="w-100">
+                    </div>
+                  </div>
+
+                </div>
+
+  <div class="swiper-button-next">
+
+  <svg *ngIf="lang == 'ar'"  width="50" height="50" fill="#ffff" class="bi bi-arrow-left col-11 mx-auto" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+  </svg>
+
+  <svg *ngIf="lang == 'en'"  width="50" height="50" fill="#ffff" fill="currentColor" class="bi bi-arrow-right col-11 mx-auto" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+  </svg>
+
+  </div>
+
+
+  <div class="swiper-button-prev ">
+
+  <svg *ngIf="lang == 'en'"  width="50" height="50" fill="#ffff" class="bi bi-arrow-left col-11 mx-auto" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+  </svg>
+
+  <svg *ngIf="lang == 'ar'"  width="50" height="50" fill="#ffff" fill="currentColor" class="bi bi-arrow-right col-11 mx-auto" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+  </svg>
+
+  </div>
+
+              </swiper>
+            </div>
+
+
+            <div class="my-5 eye d-flex">
+
+              <svg  width="50" height="50" fill="#fff" class="bi bi-eye-fill mx-2" viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+              </svg>
+
+                  <div class="content col-10 col-lg-11">
+                      <h2 class="p-2 " *ngIf="lang == 'ar' ">{{OurVision.arabicHeading}}</h2>
+                      <h2 class="p-2 " *ngIf="lang == 'en' ">{{OurVision.englishHeading}}</h2>
+                      <p class="p-2 mb-3 " *ngIf="lang == 'ar' ">{{OurVision.arabicText}}</p>
+                      <p class="p-2 mb-3 " *ngIf="lang == 'en' ">{{OurVision.englishText}}</p>
+                  </div>
+          </div>
+
+          <div class="my-5 aims d-flex ">
+
+            <svg  width="50" height="50" fill="#fff" class="bi bi-eye-fill mx-2" viewBox="0 0 16 16">
+              <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+              <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+            </svg>
+
+                  <div class="content col-10 col-lg-11">
+                    <h2 class="p-2 " *ngIf="lang == 'ar' ">{{OurGoals.arabicHeading}}</h2>
+                    <h2 class="p-2 " *ngIf="lang == 'en' ">{{OurGoals.englishHeading}}</h2>
+                    <p class="p-2 mb-3" *ngIf="lang == 'ar' ">{{OurGoals.arabicText}}</p>
+                    <p class="p-2 mb-3" *ngIf="lang == 'en' ">{{OurGoals.englishText}}</p>
+                  </div>
+
+          </div>
+
+          </div>
+
+      </div>
+  </div>
+
+</section>
+<!-- end about -->

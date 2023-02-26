@@ -1,0 +1,138 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+section.aboutslider{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+section.aboutslider img ,
+section.aboutslider video{
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+}
+
+section.about{padding: 30px 0 0px 0px;}
+
+section.about .box{
+display:-webkit-box;
+display:-ms-flexbox;
+display:flex;
+-webkit-box-align: start;
+-ms-flex-align: start;
+align-items: flex-start;
+}
+section.about .box svg {
+  min-height: 25px !important;
+  max-height: 25px !important;
+  min-width: 25px !important;
+  max-width: 25px !important;
+}
+section.about p{
+font-weight: 500;
+position: relative;
+font-size: 2rem;
+}
+
+
+
+section.about .swiper-button-next ,
+section.about .swiper-button-prev {
+color:#fff;
+background-color: #9dc10d;
+font-weight: bold;
+border-radius: 5px;
+padding: 20px;
+z-index: 99999999999;
+font-size: 30px;
+overflow: hidden;
+}
+section.about .swiper-button-prev::after,
+section.about .swiper-button-next::after {
+content: "" !important;
+}
+
+section.about .swiper-button-next svg,
+section.about .swiper-button-prev svg{
+color: white !important;
+position: absolute;
+z-index: 99999;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+max-height: 100% !important;
+}
+
+section.about  .smallSwipper img {
+  min-height: 85vh;
+  max-height: 85vh;
+}
+
+section.about .eye{background-color: gray;}
+section.about .aims{background-color:gray;}
+
+section.about .eye h2,
+section.about .aims h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+
+
+section.aboutslider h1{
+        position: absolute;
+        z-index: 3;
+        right: 0;
+        bottom: 20%;
+        color: #000;
+        width: 90%;
+        margin-right: 40px;
+        font-weight: bold;
+        font-size: 2rem;
+        object-fit: contain;
+    }
+
+    section.aboutslider h1::after {
+        position: absolute;
+        content: '';
+        background-color: gray;
+        height: 3px;
+        bottom: -40%;
+        width: 20%;
+        right: inherit;
+    }
+
+    section.aboutslider h1::before {
+        position: absolute;
+        content: '';
+        bottom: -50%;
+        height: 6px;
+        background-color: #9dc10d;
+        width: 15%;
+        z-index: 9;
+        right: inherit;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+
+    @media(max-width:500px){
+
+      section.aboutslider h1::before {
+        width: 50%;
+      }
+
+      section.aboutslider h1::after {
+        width: 80%;
+      }
+
+   }
+

@@ -1,0 +1,25 @@
+table select {
+  color: white !important;
+  border: none !important;
+  background-image: none !important;
+  }
+
+  form button.save {
+  background-color: #4c4c4c;
+  color: white;
+  }
+  input:focus,textarea:focus {
+  box-shadow: none !important;
+  }
+  input,select,textarea {
+  border: 1px solid gray !important;
+  }
+  td {
+    font-size: 1.5rem !important;
+  }
+  button , input , textarea ,select , label ,th,option {
+    font-size: 1.6rem !important;
+  }
+  th {
+    padding: 10px;
+  }

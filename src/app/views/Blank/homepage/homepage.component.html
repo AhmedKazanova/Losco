@@ -1,0 +1,242 @@
+<!-- start slider -->
+<section class="slider">
+
+<div class="direction">
+
+  <swiper     [config]="Home" class="mySwiper" *ngIf="isServer == false">
+  <div class="swiper-wrapper">
+
+    <ng-container *ngIf="HomeSlidesArr.length > 0">
+      <div
+        class="video swiper-slide"
+        *ngFor="let img of HomeSlidesArr; let i = index">
+        <img
+          *ngIf="img.changetype != 'mp4'"
+          src="{{url+img.imagePath}}"
+          class="col-12"
+          alt="image"
+          height="100"
+          width="100"
+        />
+
+        <video  width="100" height="100" *ngIf="img.changetype == 'mp4'" class="col-12" controls>
+          <source src="{{url+img.imagePath}}" type="video/mp4" />
+          <i class="fa fa-play" aria-hidden="true"></i>
+        </video>
+
+        <h1 class="text-end " *ngIf="lang == 'ar' && img.changetype != 'mp4'">{{ img.arabicHeading }}</h1>
+      <h1 class="text-start " *ngIf="lang == 'en' && img.changetype != 'mp4'">{{ img.englishHeading }}</h1>
+      </div>
+    </ng-container>
+  </div>
+</swiper></div>
+
+</section>
+<!-- end slider -->
+
+<!-- start about_losco -->
+<section class="about_losco">
+
+    <div class="container " >
+
+    <div class="col-11 col-lg-9 mx-auto">
+
+      <h2 *ngIf="lang == 'ar'" class="mx-auto">{{About.arabicHeading}}</h2>
+      <h2 *ngIf="lang == 'en'" class="mx-auto">{{About.englishHeading}}</h2>
+
+      <div class="about_text mx-auto">
+
+        <div *ngIf="lang == 'ar'">{{About.arabicText}}</div>
+        <div *ngIf="lang == 'en'">{{About.englishText}}</div>
+
+        <div class="text-start mt-5" *ngIf="lang == 'ar'">
+          <a class="more " [routerLink]="['/about']">
+            {{"More" | translate}}
+            <svg  width="16" height="16" fill="#9dc10d" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+              <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="text-end mt-5" *ngIf="lang == 'en'">
+          <a class="more " [routerLink]="['/about']">
+            {{"More" | translate}}
+            <svg  width="16" height="16" fill="#9dc10d" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+              <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+            </svg>
+          </a>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    </div>
+
+
+</section>
+<!-- end about_losco -->
+
+<!-- start about_icons -->
+<section class="about-icon ">
+  <div class="container">
+    <div class="row ">
+
+      <div class="col-11 col-sm-6 col-md-3 mx-auto boxContainer px-1" *ngFor="let service of ServicesArr">
+        <div class="box position-relative">
+          <div class="img-box text-center mx-auto">
+            <img [routerLink]="'/services' | localize"  src="{{url+service.imagePath}}" width="100" height="100" alt="img" class="col-7 px-2" />
+          </div>
+          <p [routerLink]="'/services' | localize"  *ngIf="lang == 'ar'" class="text text-center"> {{service.arabicHeading}} </p>
+          <p [routerLink]="'/services' | localize"  *ngIf="lang == 'en'" class="text text-center"> {{service.englishHeading}}  </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- end about_icons -->
+
+<!-- start brand -->
+<!-- <section class="brand">
+  <div class="container">
+    <h3 class="text-center mb-5"> {{"OurBrand" | translate  }} </h3>
+    <div class="row text-center align-items-center justify-content-center">
+
+      <div class="col-12 col-sm-6 col-md-3 col-lg-2" *ngFor="let brand of BrandsArr">
+        <div class="box text-center">
+          <img src="{{url+brand.imagePath}}" width="100" height="100" class="p-1 col-12 mx-auto" alt="image"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section> -->
+<!-- end brand -->
+
+<!-- start losco_numbers -->
+<!-- <section class="numbers">
+  <div class="container">
+    <h4>
+      {{"Losoco" | translate}} <span class="span_text">{{"ForNumber" | translate}}</span>
+    </h4>
+    <div class="row text-center justify-content-center ">
+
+      <div class="col-11 col-sm-6 col-md-2 mx-auto my-3 box-border" *ngFor=" let number of NumbersArr">
+        <div class="box">
+          <span class="d-block num" *ngIf="lang == 'ar'"> {{number.arabicHeading}} </span>
+          <span class="d-block num" *ngIf="lang == 'en'"> {{number.englishHeading}}  </span>
+          <span class="d-block numtext" *ngIf="lang == 'ar'">{{number.arabicText}} </span>
+          <span class="d-block numtext" *ngIf="lang == 'en'">{{number.englishText}} </span>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section> -->
+<!-- end losco_numbers -->
+
+<!-- start our_news -->
+<section class="our_news  ">
+  <div class="container">
+    <h5>{{"News" | translate }}</h5>
+  </div>
+
+  <div class="container">
+
+    <div class="direction">
+      <swiper   [config]="SwipperNews" class="mySwiper" *ngIf="isServer == false">
+        <div class="swiper-wrapper">
+
+
+          <div class="swiper-slide" *ngFor="let news of newsArr">
+            <div class="solution-box ">
+              <figure>
+                <img src="{{url+news.imagePath}}" width="100" height="100" alt="Image" class="col-12" />
+
+                <div class="fig_box">
+                  {{news.date | date:'dd'}}
+                  <ng-container *ngFor="let arabicDate of dateArr">
+                      <span *ngIf="news.date.split('-')[1] == arabicDate.id">
+                          <span class="d-block dateNews" *ngIf="lang == 'ar'">{{arabicDate.arabicDate}}</span>
+                          <span class="d-block dateNews" *ngIf="lang == 'en'">{{arabicDate.englishDate}}</span>
+                      </span>
+                  </ng-container>
+                </div>
+
+              </figure>
+              <h6 class="px-3 py-2 text-end" *ngIf="lang == 'ar'"> {{news.arabicHeading}} </h6>
+              <h6 class="px-3 py-2 text-start" *ngIf="lang == 'en'"> {{news.englishHeading}} </h6>
+              <p class="px-3  text-end" *ngIf="lang == 'ar'">{{news.arabicText.split(' ').splice(0,32).join(' ')}} </p>
+              <p class="px-3  text-start" *ngIf="lang == 'en'">{{news.englishText.split(' ').splice(0,32).join(' ')}}</p>
+
+              <div *ngIf="lang == 'ar'" class="text-start my-3 p-3">
+                <a class="more" href="#">
+                  <svg  width="16" height="16" fill="#9dc10d" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  </svg>
+                  {{"More" | translate}}
+                </a>
+              </div>
+
+              <div *ngIf="lang == 'en'" class="text-end my-3 p-3">
+                <a class="more" href="#">
+                  {{"More" | translate}}
+                  <svg  width="16" height="16" fill="#9dc10d" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </swiper>
+    </div>
+
+
+  </div>
+</section>
+<!-- end our_news -->
+
+<!-- start clients -->
+<section class="clients   mb-5">
+  <div class="container">
+    <h6 class="">{{"OurClients" | translate }}</h6>
+    <div class="direction">
+      <swiper   [config]="SwipperNews" class="mySwiper" *ngIf="isServer == false">
+
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide" *ngFor="let client of ClientsArr">
+
+            <div class="col-11 mx-auto">
+              <div class="box">
+                <div class="img-box px-2 text-center">
+                  <img  src="{{url+client.imagePath}}" width="100" height="100" alt="img" class="col-11 mx-auto" />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </swiper>
+    </div>
+    <!-- <div class="row text-center justify-content-center">
+      <div class="col-11 col-sm-6 col-md-4 col-lg-2" *ngFor="let client of ClientsArr">
+        <div class="box">
+          <div class="img-box px-2 text-center">
+            <img  src="{{url+client.imagePath}}" width="100" height="100" alt="img" class="col-11 mx-auto" />
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</section>
+<!-- end clients -->
