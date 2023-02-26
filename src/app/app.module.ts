@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { translateBrowserLoaderFactory } from './localize/translate-browser.loader';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { LocalizeParser, LocalizeRouterModule, LocalizeRouterSettings } from '@gilsdav/ngx-translate-router';
 import { localizeBrowserLoaderFactory } from './localize/localize-browser.loader';
 import { Location } from '@angular/common';
@@ -30,7 +29,6 @@ import { LayoutsModule } from './shared/components/layouts/layouts.module';
     BrowserAnimationsModule,
     HttpClientModule,
     CookieModule.forRoot(),
-    BsDropdownModule.forRoot(),
     LayoutsModule,
     TranslateModule.forRoot({
       defaultLanguage: 'ar',
